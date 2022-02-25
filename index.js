@@ -28,7 +28,7 @@ app.post('/register', async (req, res) => {
 })
 
 
-app.get('/login', async (req, res) => {
+app.post('/login', async (req, res) => {
     const user = await User.findOne({
         username: req.body.username,
     })
