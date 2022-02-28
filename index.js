@@ -4,6 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken')
 const User = require('./models/user.model');
+const Expense = require('./models/expense.model');
 const bcrypt = require('bcrypt');
 
 mongoose.connect('mongodb://localhost:27017/expense-app');
@@ -42,7 +43,9 @@ app.post('/login', async (req, res) => {
         return res.json({ status: 'error', user: false })
     }
 })
-
+app.post('/expense', async (req, res) => {
+    const expense = await Expense.findOne({})
+})
 app.listen(1337, () => {
     console.log('Server started on 1337');
 })
